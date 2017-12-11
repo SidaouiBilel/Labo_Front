@@ -1,0 +1,53 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Forum</h4>
+            <p class="category">Don't be afraid to ask questions</p>
+          </div>
+          <div class="card-content">
+            <h3>{{id}}:</h3>
+            <table class="table table-bordered">
+              <thead>
+              <tr class="text-danger">
+                <th>Publication</th><th>Author</th><th>Status</th><th *ngIf="admin()">Effacer</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let data of pubs">
+                <td><a [routerLink]="['/post',data[4]]" class="btn btn-default">{{data[0]}}</a></td><td>{{data[2]}} {{data[1]}}</td><td>{{data[3]}}</td><td *ngIf="admin()">
+                <button >Effacer cet article</button>
+              </td>
+              </tr>
+              </tbody>
+            </table>
+            <hr>
+            <div class="row" *ngIf="connected()">
+              <div class="card-header" data-background-color="red">
+                <p class="category">Add an article</p>
+              </div>
+              <form #f="ngForm">
+                <div class="col-md-12">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Title</label>
+                    <input type="email" class="form-control" name="title" #title ngModel required>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Body</label>
+                    <input type="text" class="form-control" name="body" #body ngModel required>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-danger pull-right" (click)="onSubmite(title.value,body.value)" [disabled]="!f.valid">Create Article</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

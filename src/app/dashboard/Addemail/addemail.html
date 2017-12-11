@@ -1,0 +1,38 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Add email</h4>
+            <p class="category">Allow an email to sign up for the website</p>
+          </div>
+          <div class="card-content">
+            <form #f="ngForm">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Email address</label>
+                    <input type="email" class="form-control" name="email" #email ngModel required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                    >
+                  </div>
+                </div></div>
+              <div class="row col-md-12" >
+                <div class="col-md-12 pull-left">
+                  <button  type="submit" class="btn btn-danger" [disabled]="!f.valid" (click)="onclicks(email.value)">Done!</button>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div *ngIf="successed">
+                <p class="text-danger">Registration was successful!</p>
+              </div>
+              <div *ngIf="failure">
+                <p class="text-danger"> Registration was unsuccessful ! Please Contact the administrator</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

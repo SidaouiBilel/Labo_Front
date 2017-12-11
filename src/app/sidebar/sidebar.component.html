@@ -1,0 +1,84 @@
+<div>
+<div class="logo">
+    <a href="http://localhost:4200" class="simple-text">
+        <div class="logo-img">
+            <img src="/assets/img/angular2-logo-red.png"/>
+        </div>
+        EnsiLab
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <div class="nav-container">
+        <ul class="nav">
+            <li routerLinkActive="active">
+                <a  [routerLink]="['/dashboard']">
+                    <i class="material-icons">home</i>
+                    <p>Home</p>
+                </a>
+            </li>
+
+            <li routerLinkActive="active" *ngIf="logged()">
+                <a  [routerLink]="['/table']">
+                    <i class="material-icons">content_paste</i>
+                    <p>Members</p>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a  [routerLink]="['/forum']">
+                    <i class="material-icons">library_books</i>
+                    <p>Forum</p>
+                </a>
+            </li>
+          <li routerLinkActive="active" *ngIf="logged()">
+            <a  [routerLink]="['/editor']">
+              <i class="fa fa-user"></i>
+              <p>Editor Online</p>
+            </a>
+          </li>
+            <li routerLinkActive="active">
+                <a  [routerLink]="['/icons']">
+                    <i class="material-icons">bubble_chart</i>
+                    <p>Curriculum Vitae</p>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a  [routerLink]="['/maps']">
+                    <i class="material-icons">book</i>
+                    <p>Articles</p>
+                </a>
+            </li>
+          <li routerLinkActive="active" *ngIf="isadmin()">
+            <a  [routerLink]="['/addemail']">
+              <i class="fa fa-user"></i>
+              <p>Add User</p>
+            </a>
+          </li>
+
+          <li routerLinkActive="active" *ngIf="!logged()">
+            <a  [routerLink]="['/user']">
+              <i class="material-icons">account_box</i>
+              <p>Sign up</p>
+            </a>
+          </li>
+          <li routerLinkActive="active" *ngIf="!logged()">
+            <a  [routerLink]="['/signin']">
+              <i class="material-icons">person_outline</i>
+              <p>Sign in</p>
+            </a>
+          </li>
+          <li routerLinkActive="active" *ngIf="logged()">
+            <a  [routerLink]="['/profile']">
+              <i class="fa fa-user"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+          <li routerLinkActive="active" *ngIf="logged()">
+            <a  href="javascript:void(0);" (click)="logout()">
+              <i class="fa fa-power-off"></i>
+              <p>Log out</p>
+            </a>
+          </li>
+        </ul>
+    </div>
+</div>
+</div>

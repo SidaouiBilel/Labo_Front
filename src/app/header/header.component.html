@@ -1,0 +1,41 @@
+<div class="page-top clearfix">
+      <div class="user-profile clearfix">
+        <div class="dropdown al-user-profile">
+          <a href="#" class="dropdown-toggle profile-toggle-link" data-toggle="dropdown">
+            <img [src]="'src/assets/img/faces/'+name+'.png'" style="border-radius:50%" height="50px" width="50px">
+            <ul class="dropdown-menu top-dropdown-menu profile-dropdown">
+              <li><a [routerLink]="['/profile']"><i class="fa fa-user"></i> Profile</a></li>
+              <li><a [routerLink]="['/msg']"><i class="fa fa-user"></i>Message</a></li>
+              <li><a href="javascript:void(0);" (click)="logout()"><i class="fa fa-power-off"></i> Sign out</a></li>
+            </ul>
+          </a>
+        </div>
+        <ul class="al-msg-center clearfix">
+          <li class="dropdown">
+            <a  aria-expanded="false" class="msg dropdown-toggle" data-toggle="dropdown" href="" id="msg-dd2">
+              <i  class="fa fa-envelope-o"></i><span >3</span>
+              <div  class="notification-ring"></div>
+            </a>
+            <div  aria-labelledby="msg-dd2" class="top-dropdown-menu dropdown-menu">
+              <i class="dropdown-arr"></i>
+              <div  class="header clearfix">
+                <strong >Messages</strong>
+                <a  href="">Mark All as Read</a>
+                <a  href="">Settings</a>
+              </div>
+              <div class="msg-list">
+                <table *ngFor="let msget of msg">
+                  <tr>
+                    <td width="80px"> <img [src]="'src/assets/img/faces/'+msget[1]+'.png'" style="border-radius: 50%" width="50px" height="50px"/></td>
+                    <td rowspan="2">{{msget[0]}}</td>
+                  </tr>
+                  <tr>
+                    <td width="80px">{{msget[2]}} {{msget[1]}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+</div>

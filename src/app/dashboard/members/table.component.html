@@ -1,0 +1,100 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+            <div class="card card-plain">
+              <div class="card-header" data-background-color="red">
+                <h4 class="title">Our Professors</h4>
+                <p class="category">Here is a list of our professors</p>
+              </div>
+              <div class="card-content table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                  <tr class="text-danger">
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th *ngIf="ifadmin()">Delete</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let prof of professors">
+                    <td width="20%"><img [src]="'src/assets/img/faces/'+prof[0]+'.png'"></td>
+                    <td width="20%">{{prof[0]}}</td>
+                    <td width="20%">{{prof[1]}}</td>
+                    <td width="20%">{{prof[2]}}</td>
+                    <td width="20%" *ngIf="ifadmin()"><button type="button" (click)="deleteus(prof[2])" class="btn btn-danger">Delete this Member</button></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-12">
+            <div class="card card-plain">
+              <div class="card-header" data-background-color="red">
+                <h4 class="title">Our Researchers</h4>
+                <p class="category">Here is a list of our researchers</p>
+              </div>
+              <div class="card-content table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                  <tr class="text-danger">
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th *ngIf="ifadmin()">Delete</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let resea of researchers">
+                    <td width="20%"><img [src]="'src/assets/img/faces/'+resea[0]+'.png'"></td>
+                    <td width="20%">{{resea[0]}}</td>
+                    <td width="20%">{{resea[1]}}</td>
+                    <td width="20%">{{resea[2]}}</td>
+                    <td width="20%" *ngIf="ifadmin()"><button type="button" (click)="deleteus(resea[2])" class="btn btn-danger">Delete this Member</button></td>
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Students</h4>
+                        <p class="category">Here is a list of our Students</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-danger">
+                                  <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th *ngIf="ifadmin()">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let stud of students">
+                                  <td width="20%"><img [src]="'src/assets/img/faces/'+stud[0]+'.png'"></td>
+                                  <td width="20%">{{stud[0]}}</td>
+                                  <td width="20%">{{stud[1]}}</td>
+                                  <td width="20%">{{stud[2]}}</td>
+                                  <td width="20%" *ngIf="ifadmin()"><button type="button" (click)="deleteus(stud[2])" class="btn btn-danger">Delete this Member</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

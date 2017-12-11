@@ -1,0 +1,25 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Editor</h4>
+            <p class="category">Work together ! </p>
+          </div>
+          <div class="card-content">
+<ckeditor
+  [(ngModel)]="ckeditorContent"
+  [config]="{uiColor: '#e53935'}"
+  (change)="onChange($event)"
+  (ready)="onReady($event)"
+  (focus)="onFocus($event)"
+  (blur)="onBlur($event)"
+  debounce="500">
+</ckeditor>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

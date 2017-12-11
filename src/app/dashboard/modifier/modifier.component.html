@@ -1,0 +1,58 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Profile</h4>
+            <p class="category">Update your account</p>
+          </div>
+          <div class="card-content" >
+            <form #f="ngForm">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">First Name</label>
+                    <input type="text" class="form-control" name="nom" #firstname ngModel required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Last Name</label>
+                    <input type="text" class="form-control" name="prenom" #lastname ngModel required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Password</label>
+                    <input type="password" class="form-control" name="password" #password ngModel required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <select class="form-control" name="status" #status>
+                  <option>Professor</option>
+                  <option>Student</option>
+                  <option>Researcher</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-danger pull-right" (click)="onSubmit(firstname.value,lastname.value,password.value,status.value)" [disabled]="!f.valid">Update Account</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+          <div *ngIf="success">
+            <p class="text-danger">Update was successful! Please Contact The administrator</p>
+          </div>
+          <div *ngIf="failure">
+            <p class="text-danger">Update was unsuccessful! Please contact The administrator</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

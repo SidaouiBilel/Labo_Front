@@ -1,0 +1,57 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Articles</h4>
+            <p class="category">Here is a list of the articles published</p>
+          </div>
+          <div class="card-content">
+            <div class="row">
+               <div class="col-md-3">
+                 <div *ngFor="let art of articles">
+                     <div>
+                         <a [routerLink]="['article',art[4]]" class="btn btn-danger col-lg-12" >{{art[0]}}<br/><small>{{art[1]}} {{art[2]}}</small></a>
+                          <button  *ngIf="ifadmin()"><small>Delete this article</small></button>
+                     </div>
+                 </div>
+               </div>
+               <div class="col-md-9">
+                     <router-outlet></router-outlet>
+               </div>
+            </div>
+          <hr>
+            <div class="row" *ngIf="connected()">
+              <div class="card-header" data-background-color="red">
+                <p class="category">Add an article</p>
+              </div>
+              <form #f="ngForm">
+                <div class="col-md-12">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Title</label>
+                    <input type="email" class="form-control" name="title" #title ngModel required>
+                  </div>
+                </div>
+              <div class="col-md-12">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">Body</label>
+                  <input type="text" class="form-control" name="body" #body ngModel required>
+                </div>
+              </div>
+                <label></label>
+                <select class="form-control" name="type" #type>
+                  <option>Private</option>
+                  <option>Public</option>
+                </select>
+                <button type="submit" class="btn btn-danger pull-right" (click)="onSubmiting(title.value,body.value,type.value)" [disabled]="!f.valid">Create Article</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

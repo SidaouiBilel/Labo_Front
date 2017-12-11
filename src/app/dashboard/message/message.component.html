@@ -1,0 +1,28 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Messages</h4>
+          </div>
+          <div class="card-content">
+            <form #f="ngForm">
+              <select name="user" #user >
+                <option *ngFor="let u of users">
+                  {{u}}
+                </option>
+              </select>
+              <hr/><div class="form-group form-black label-floating is-empty">
+              <label class="control-label">Message</label>
+              <input type="text" class="form-control" #msg autocomplete>
+            </div>
+              <button  type="submit" class="btn btn-danger" (click)="onSubmits(msg.value,user.value)">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
